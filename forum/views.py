@@ -2,17 +2,18 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from django.views.generic import View, UpdateView, ListView
+from django.views.generic import UpdateView, ListView, FormView, View
 from django.utils import timezone
 
 from forum.models import Board, Topic, Message
 
 from markdownx.utils import markdownify
 
-from forum.forms import NewTopicForm, ReplyMessageForm
+from forum.forms import NewTopicForm, ReplyMessageForm, LoginForm
 
 
 class CommunitiesListView(ListView):

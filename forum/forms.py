@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import gettext as _
-from forum.models import Topic
-from forum.models import Message
+from forum.models import Topic, Message
+from django.contrib.auth.models import User
 
 class NewTopicForm(forms.ModelForm):
     text = forms.CharField(
@@ -22,3 +22,11 @@ class ReplyMessageForm(forms.ModelForm):
     class Meta:
         model = Message
         fields = ('text',)
+
+
+class LoginForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ('email', 'password',)
+

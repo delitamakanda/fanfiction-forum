@@ -20,9 +20,8 @@ DATABASES = {
 }
 
 # WhiteNoise configuration
-MIDDLEWARE += [                                                                                       
-    'whitenoise.middleware.WhiteNoiseMiddleware',                 
-]
+MIDDLEWARE += 'whitenoise.middleware.WhiteNoiseMiddleware',                 
+
 
 STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
 
